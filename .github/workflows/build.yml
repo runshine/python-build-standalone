@@ -21,14 +21,14 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build binary
-        run: ./build-linux.py --target armv7-unknown-linux-gnueabi 
+        run: ./build-linux.py --target armv7-unknown-linux-gnueabi  --python cpython-3.12 --options lto+static
 
       - name: List Dir
         run: ls -lRt ${{ github.workspace }}
 
-    #   - name: Upload binary to artifacts
-    #     uses: actions/upload-artifact@v4
-    #     with:
-    #       name: 7zz-linux-${{ matrix.build_name }}
-    #       path: ${{ github.workspace }}/output/build/install/bin/*
+      - name: Upload binary to artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: cpython-3.12-armv7-unknown-linux-gnueabi
+          path: ${{ github.workspace }}/dist/*
 
