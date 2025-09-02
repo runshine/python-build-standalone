@@ -15,7 +15,7 @@ jobs:
         uses: docker/setup-qemu-action@v3
 
       - name: install option soft
-        run: apt update && apt install gcc-arm-linux-gnueabi
+        run: sudo apt update && sudo apt install -y gcc-arm-linux-gnueabi
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
