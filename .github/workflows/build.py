@@ -1,0 +1,34 @@
+name: build_python312_armel
+on:
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build_armel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: install option soft
+        run: apt update && apt install gcc-arm-linux-gnueabi
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build binary
+        run: ./build-linux.py --target armv7-unknown-linux-gnueabi 
+
+      - name: List Dir
+        run: ls -lRt ${{ github.workspace }}
+
+    #   - name: Upload binary to artifacts
+    #     uses: actions/upload-artifact@v4
+    #     with:
+    #       name: 7zz-linux-${{ matrix.build_name }}
+    #       path: ${{ github.workspace }}/output/build/install/bin/*
+
