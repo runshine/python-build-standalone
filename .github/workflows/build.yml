@@ -21,7 +21,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build binary
-        run: ./build-linux.py --target armv7-unknown-linux-gnueabi  --python cpython-3.13 --options freethreaded+pgo+lto+static --no-docker
+        run: ./build-linux.py --target armv7-unknown-linux-gnueabi  --python cpython-3.13 --options freethreaded+pgo+lto+static
 
       - name: List Dir
         run: ls -lRt ${{ github.workspace }}
