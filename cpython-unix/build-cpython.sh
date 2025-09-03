@@ -657,7 +657,7 @@ if [[ -n "${PYTHON_MEETS_MINIMUM_VERSION_3_14}" && "${TARGET_TRIPLE}" == x86_64*
 fi
 
 #CFLAGS=$CFLAGS CPPFLAGS=$CFLAGS CFLAGS_JIT=$CFLAGS_JIT LDFLAGS="$LDFLAGS -Wl,-Bstatic -lgcc_s -Wl,-Bdynamic" ./configure ${CONFIGURE_FLAGS}
-CFLAGS=$CFLAGS CPPFLAGS=$CFLAGS CFLAGS_JIT=$CFLAGS_JIT LDFLAGS="$LDFLAGS -Wl,-Bstatic -lgcc_s  -Wl,-Bdynamic" ./configure ${CONFIGURE_FLAGS}
+CFLAGS=$CFLAGS CPPFLAGS=$CFLAGS CFLAGS_JIT=$CFLAGS_JIT LDFLAGS="$LDFLAGS" ./configure ${CONFIGURE_FLAGS}
 
 # Supplement produced Makefile with our modifications.
 cat ../Makefile.extra >> Makefile
